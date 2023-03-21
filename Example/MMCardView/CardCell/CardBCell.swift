@@ -6,18 +6,16 @@
 //  Copyright © 2016年 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MMCardView
+import UIKit
 
 class CardBCell: CardCell {
+    @IBOutlet weak var imgV: UIImageView!
 
-    @IBOutlet weak var imgV:UIImageView!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         imgV.layer.cornerRadius = 8.0
         imgV.clipsToBounds = true
         // Initialization code
     }
-
 }

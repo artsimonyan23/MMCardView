@@ -6,12 +6,11 @@
 //  Copyright © 2017年 CocoaPods. All rights reserved.
 //
 
-import UIKit
 import MMCardView
-class CardDCell: CardCell {    
+import UIKit
+
+class CardDCell: CardCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
-
 }

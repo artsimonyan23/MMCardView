@@ -9,16 +9,11 @@
 import UIKit
 
 extension UIView {
-    
-    func setShadow(offset:CGSize,radius:CGFloat,opacity:Float) {
-     
-        self.layer.masksToBounds = false
-        self.layer.cornerRadius = radius
-        self.layer.shadowOffset = offset
-        self.layer.shadowOpacity = opacity
-        self.layer.shadowColor = UIColor.black.withAlphaComponent(0.5).cgColor
+    func setShadow(offset: CGSize, radius: CGFloat, opacity: Float) {
+        layer.masksToBounds = false
+        layer.cornerRadius = radius
+        layer.shadowOffset = offset
+        layer.shadowOpacity = opacity
+        layer.shadowColor = UIColor.black.withAlphaComponent(0.5).cgColor
     }
-    
 }
-
-

@@ -6,52 +6,40 @@
 //
 //
 
-
 import UIKit
-extension UIViewController{
-    
-    fileprivate static func findBestViewController(_ vc:UIViewController) -> UIViewController! {
-        if((vc.presentedViewController) != nil){
+
+extension UIViewController {
+    fileprivate static func findBestViewController(_ vc: UIViewController) -> UIViewController! {
+        if (vc.presentedViewController) != nil {
             return UIViewController.findBestViewController(vc.presentedViewController!)
-        }
-            
-        else if(vc.isKind(of: UISplitViewController.classForCoder())){
+        } else if vc.isKind(of: UISplitViewController.classForCoder()) {
             let splite = vc as! UISplitViewController
-            if(splite.viewControllers.count > 0){
+            if splite.viewControllers.count > 0 {
                 return UIViewController.findBestViewController(splite.viewControllers.last!)
-            }
-                
-            else{
+            } else {
                 return vc
             }
-        }
-            
-        else if(vc.isKind(of:UINavigationController.classForCoder())){
+        } else if vc.isKind(of: UINavigationController.classForCoder()) {
             let svc = vc as! UINavigationController
-            if(svc.viewControllers.count > 0){
+            if svc.viewControllers.count > 0 {
                 return UIViewController.findBestViewController(svc.topViewController!)
-            }
-            else{
+            } else {
                 return vc
             }
-        }
-            
-        else if(vc.isKind(of:UITabBarController.classForCoder())){
-            if let svc = vc as? UITabBarController,let v = svc.viewControllers , v.count > 0{
+        } else if vc.isKind(of: UITabBarController.classForCoder()) {
+            if let svc = vc as? UITabBarController, let v = svc.viewControllers, v.count > 0 {
                 return UIViewController.findBestViewController(svc.selectedViewController!)
 
-            } else{
+            } else {
                 return vc
             }
-        }
-            
-        else{
+        } else {
             return vc
         }
     }
-    
+
     static func currentViewController() -> UIViewController {
-        let vc:UIViewController! = UIApplication.shared.keyWindow?.rootViewController
+        let vc: UIViewController! = UIApplication.shared.keyWindow?.rootViewController
         return UIViewController.findBestViewController(vc)
     }
 }
