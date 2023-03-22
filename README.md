@@ -31,12 +31,12 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
     }
 
-    if let layout = cardCollection.collectionViewLayout as? CustomCardLayout {
-         layout.titleHeight = 100.0
-         layout.bottomShowCount = 3
-         layout.cardHeight = 300
-         layout.showStyle = .cover
-    }
+    let layout = cardCollection.cardLayout
+    layout.titleHeight = 100.0
+    layout.bottomShowCount = 3
+    layout.cardHeight = 300 // or use delegate for different sizes
+    layout.showStyle = .cover
+
 ## Installation
 
 MMCardView is available through [CocoaPods](http://cocoapods.org). To install
@@ -46,7 +46,7 @@ it, simply add the following line to your Podfile:
 Swift 3
 pod 'MMCardView'
 Swift2.3
-pod 'MMCardView',:git => 'https://github.com/MillmanY/MMCardView', :branch => ‘Swift2’
+pod 'MMCardView',:git => 'https://github.com/artsimonyan23/MMCardView'
 
 ```
 

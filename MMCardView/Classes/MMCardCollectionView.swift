@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 public enum LayoutStyle {
     case card
 }
@@ -21,10 +22,12 @@ public class MMCollectionView: UICollectionView {
         didSet {
             switch layoutStyle {
             case .card:
-                self.collectionViewLayout = CustomCardLayout()
+                self.collectionViewLayout = cardLayout
             }
         }
     }
+    
+    public let cardLayout = CustomCardLayout()
 
     override public var delegate: UICollectionViewDelegate? {
         get {
@@ -57,12 +60,6 @@ public class MMCollectionView: UICollectionView {
     override public var bounds: CGRect {
         didSet {
             if oldValue != bounds && bounds.size != .zero {
-                switch collectionViewLayout {
-                case let l as CustomCardLayout:
-                    l.updateCellSize()
-                default:
-                    break
-                }
                 reloadData()
             }
         }

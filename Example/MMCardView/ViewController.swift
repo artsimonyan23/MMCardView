@@ -12,16 +12,21 @@ import UIKit
 class ViewController: UIViewController {
     var sectionData = [["CardA", "CardB", "CardC"], ["CardB", "CardB", "CardB"], ["CardC"], ["CardD"]]
     @IBOutlet weak var cardCollection: MMCollectionView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         cardCollection.register(UINib(nibName: "CardACell", bundle: nil), forCellWithReuseIdentifier: "CardA")
         cardCollection.register(UINib(nibName: "CardBCell", bundle: nil), forCellWithReuseIdentifier: "CardB")
         cardCollection.register(UINib(nibName: "CardCCell", bundle: nil), forCellWithReuseIdentifier: "CardC")
 
+        cardCollection.contentInset.left = 8
+        cardCollection.contentInset.right = 8
         if let layout = cardCollection.collectionViewLayout as? CustomCardLayout {
             layout.titleHeight = 100.0
-            layout.bottomShowCount = 3
-            layout.cardHeight = 300
+            layout.bottomTitleHeight = 60
+            layout.bottomStackCount = 3
+//            layout.delegate = self
+            layout.defaultCardHeight = 250
             layout.showStyle = .cover
         }
     }
