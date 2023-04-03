@@ -13,6 +13,8 @@ public enum LayoutStyle {
 }
 
 public class MMCollectionView: UICollectionView {
+    @IBInspectable var bottomCardsAreSelectable: Bool = true // if 'false', opens all cards
+    
     fileprivate var transition = CustomFlipTransition(duration: 0.5)
     fileprivate lazy var _proxyDelegate: DelegateProxy = {
         DelegateProxy(parentObject: self)
@@ -95,7 +97,11 @@ extension MMCollectionView: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView.collectionViewLayout {
         case let l as CustomCardLayout:
-            l.selectPath = indexPath
+            if bottomCardsAreSelectable || l.selectPath == nil {
+                l.selectPath = indexPath
+            } else {
+                l.selectPath = nil
+            }
         default:
             break
         }

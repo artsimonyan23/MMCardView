@@ -23,8 +23,8 @@ class ViewController: UIViewController {
         cardCollection.contentInset.right = 8
         if let layout = cardCollection.collectionViewLayout as? CustomCardLayout {
             layout.titleHeight = 100.0
-            layout.bottomTitleHeight = 60
-            layout.bottomStackCount = 3
+//            layout.bottomTitleHeight = 60
+//            layout.bottomStackCount = 3
 //            layout.delegate = self
             layout.defaultCardHeight = 250
             layout.showStyle = .cover

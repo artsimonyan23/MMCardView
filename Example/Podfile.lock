@@ -1,5 +1,5 @@
 PODS:
-  - MMCardView (0.1.1)
+  - MMCardView (2.0.0)
 
 DEPENDENCIES:
   - MMCardView (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MMCardView: 60a22ccecdd3fb74f71352039a60e3d4d8755b26
+  MMCardView: ace33bf9a0d74210cf9908f3e018d84b8cb85a38
 
-PODFILE CHECKSUM: 27100baae0d9e79cdf8bee433a4590a80424deed
+PODFILE CHECKSUM: 48e26f092997088e2ead39f9ed003be617c96581
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.12.0
